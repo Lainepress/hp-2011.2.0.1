@@ -158,3 +158,4 @@ library
     build-depends:	base < 3
   build-depends: OpenGL >= 2.2
   extensions:	CPP, ForeignFunctionInterface
+  extra-libraries: glut
