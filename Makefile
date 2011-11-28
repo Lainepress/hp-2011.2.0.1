@@ -10,7 +10,7 @@ build.stamp: config.status
 	@touch build.stamp
 
 install: build.stamp
-	scripts/install.sh
+	scripts/install.sh $(DESTDIR)
 
 clean:
 	rm -f config.status build.stamp packages/package.conf.inplace scripts/config

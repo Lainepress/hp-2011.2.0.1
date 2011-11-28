@@ -13,6 +13,8 @@ die () {
 . scripts/config
 . scripts/common.sh
 
+[ x$1 != x ] && dest_ctrl="--destdir=$1"
+
 install_pkg () {
   PKG=$1
 
@@ -21,7 +23,7 @@ install_pkg () {
 
   [ -x Setup ] || die "The ${PKG}/Setup script does not exist or cannot be run"
 
-  ./Setup copy ${VERBOSE} \
+  ./Setup copy ${dest_ctrl} ${VERBOSE} \
     || die "Installing the ${PKG} component failed"
 
   ./Setup register ${VERBOSE} --gen-pkg-config="${PKG}.conf" \
